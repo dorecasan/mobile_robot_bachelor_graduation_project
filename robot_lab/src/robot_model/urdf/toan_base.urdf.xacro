@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<robot name="summit_xl" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="toan_base">
+
+	  <!-- Robot mechanical and motor parameters -->
+    <xacro:property name="PI" value="3.1415926535897931"/>
+    <xacro:property name="wheel_width" value="0.175" />
+    <xacro:property name="wheel_radius" value="0.127" />
+    <xacro:include filename="$(find robot_model)/urdf/wheel_drive_control.gazebo.xacro"/>
+
+	<!-- BASE FOOTPRINT -->
+
+    <link name="toan_base_link">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://robot_model/meshes/base/summit_base.dae"/>
+            </geometry>   
+
+            <material name="green">
+                <color rgba="65 169 76 0.8"/>
+            </material>
+
+        </visual>
+
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://robot_model/meshes/base/summit_base.dae"/>
+            </geometry> 
+        </collision>
+
+        <inertial>
+            <mass value="1000.0" />
+            <origin xyz="0 0 0" />
+            <inertia  ixx="1.391" ixy="0.004"  ixz="0.0"  iyy="6.853"  iyz="0.0"  izz="6.125" />
+        </inertial>
+        
+    </link>
+
+  </xacro:macro>
+
+</robot>

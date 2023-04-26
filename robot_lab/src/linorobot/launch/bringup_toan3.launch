@@ -1,0 +1,20 @@
+<launch>
+
+    
+    <node pkg="linorobot" name="lino_base_node" type="lino_base_node" ></node>
+    
+
+    <include file="$(find robot_model)/launch/robot_model.launch" />
+
+    <node pkg="hector_trajectory_server" type="hector_trajectory_server" name="hector_trajectory_toan" output="screen">
+	    <param name="target_frame_name" type="string" value="odom" />
+	    <param name="source_frame_name" type="string" value="toan_base_link" />
+	    <param name="trajectory_update_rate" type="double" value="4" />
+	    <param name="trajectory_publish_rate" type="double" value="0.25" />
+	    <remap from="/trajectory" to="/robot/robot_toan" />  
+    </node>
+
+
+  
+  
+</launch>

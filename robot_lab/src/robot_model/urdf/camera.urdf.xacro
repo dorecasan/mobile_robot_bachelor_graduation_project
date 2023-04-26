@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:macro name="camera_module" params="parent_link">
+        <xacro:property name="r200_cam_rgb_px" value="0.005"/>
+        <xacro:property name="r200_cam_rgb_py" value="0.018"/>
+        <xacro:property name="r200_cam_rgb_pz" value="0.013"/>
+        <xacro:property name="r200_cam_depth_offset" value="0.01"/>
+        <link name="camera_link">
+            <visual>
+                <origin xyz="0 0 0" rpy="1.57 0 1.57"/>
+                <geometry>
+                    <mesh filename="package://robot_model/meshes/sensors/r200.dae" />
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0.003 0.065 0.007" rpy="0 0 0"/>
+                <geometry>
+                    <box size="0.012 0.132 0.020"/>
+                </geometry>
+            </collision>
+
+            <!-- This inertial field needs doesn't contain reliable data!! -->
+        <!--   <inertial>
+            <mass value="0.564" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
+                    iyy="0.000498940" iyz="0.0"
+                    izz="0.003879257" />
+            </inertial>-->
+        </link>
+
+        <joint name="camera_joint" type="fixed">
+            <origin xyz="0.25 0 0.25" rpy="0 0 0"/>
+            <parent link="${parent_link}"/>
+            <child link="camera_link"/>
+        </joint>
+
+       
+    </xacro:macro>
+    
+</robot>

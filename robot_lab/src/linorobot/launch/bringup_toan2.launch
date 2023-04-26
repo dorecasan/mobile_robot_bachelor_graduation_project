@@ -1,0 +1,15 @@
+<launch>
+
+	<node pkg="linorobot" name="lino_base_node" type="lino_base_node" ></node>
+
+    <!--/muc chay chinh--><!--bat dau==================================================-->
+    <include file="$(find robot_model)/launch/robot_model.launch" />
+
+
+
+
+    
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find linorobot)/rviz/slam.rviz" /> -->
+  
+  
+</launch>

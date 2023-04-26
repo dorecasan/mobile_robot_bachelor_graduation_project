@@ -1,0 +1,6 @@
+<launch>    
+
+     <include file="$(find linorobot)/launch/include/laser.launch" />
+   
+  
+</launch>

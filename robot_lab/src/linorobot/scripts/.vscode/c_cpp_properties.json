@@ -1,0 +1,21 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/dorecasan/my_ros/robot_lab/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/dorecasan/my_ros/robot_lab/src/linorobot/include/**",
+        "/home/dorecasan/my_ros/robot_lab/src/realsense_gazebo_plugin/include/**",
+        "/home/dorecasan/my_ros/robot_lab/src/rosserial/rosserial_server/include/**",
+        "/home/dorecasan/my_ros/robot_lab/src/rosserial/rosserial_test/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ],
+  "version": 4
+}

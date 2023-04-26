@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<launch>
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        
+        <arg name="paused" value="false"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="gui" value="true"/>
+        <arg name="headless" value="false"/>
+        <arg name="debug" value="false"/>
+    </include>
+    <include file="$(find person_sim)/launch/spawn_person.launch">
+        <arg name="sdf_robot_file" default="$(find person_sim)/models/timmyeye/model.sdf"/>
+        <arg name="robot_name" default="timmyeye" />
+        <arg name="x" default="0.0" />
+        <arg name="y" default="-8.0" />
+        <arg name="z" default="0.0" />
+        <arg name="yaw" default="0" />
+    </include>
+    
+    <param name="robot_description" command="$(find xacro)/xacro '$(find robot_model)/urdf/toan_robot.urdf.xacro'"/>
+
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    </node>
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+                args="-urdf -x -1.2 -y -1.6 -z 0 -model toan -param robot_description" />
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find robot_model)/rviz/toan_robot_rviz.rviz"/>
+    
+
+</launch>

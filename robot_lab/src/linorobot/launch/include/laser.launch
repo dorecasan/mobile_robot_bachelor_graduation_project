@@ -1,0 +1,13 @@
+<launch>
+    <!-- Run Linorobot compatible laser drivers. Takes reference from env var LINOLIDAR. ie. export LINOLIDAR=xv11 -->
+    <arg name="serial_port" default="/dev/ttyUSB0"/>
+    <include file="$(find linorobot)/launch/include/lidar/rplidar.launch">
+    	<arg name="serial_port_add" value ="$(arg serial_port)"/>
+    </include>
+ 
+
+    <!-- Publish static transform of the laser. Define your sensor offset here -->
+     
+</launch>
+
+

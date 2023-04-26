@@ -1,0 +1,8 @@
+prefix=/home/dorecasan/my_ros/robot_lab/install
+
+Name: neo_mpo_500
+Description: Description of neo_mpo_500
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

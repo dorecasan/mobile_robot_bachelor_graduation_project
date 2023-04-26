@@ -1,0 +1,2 @@
+ddynamic_reconfigure:octomap_rviz_plugins:realsense-ros/realsense2_camera:realsense-ros/realsense2_description
+-DCATKIN_DEVEL_PREFIX=/home/dorecasan/my_ros/camera/devel -DCMAKE_INSTALL_PREFIX=/home/dorecasan/my_ros/camera/install -G Unix Makefiles

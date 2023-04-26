@@ -1,0 +1,29 @@
+<launch>
+
+    
+    <node pkg="linorobot" name="lino_base_node" type="lino_base_node" ></node>
+    
+
+
+    <!-- Odom-IMU-GPS Extended Kalman Filter-->
+    <!--
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization"> 
+        <remap from="odometry/filtered" to="odom" />
+        <rosparam command="load" file="$(find linorobot)/param/ekf/robot_localization.yaml"/>
+    </node>
+    -->
+
+
+    <!--/muc chay chinh--><!--bat dau==================================================-->
+    <include file="$(find robot_model)/launch/robot_model.launch" />
+
+   <include file="$(find linorobot)/launch/include/laser.launch">
+        <arg name="serial_port" value="/dev/ttyUSB1"/>
+    </include>
+
+
+    
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find linorobot)/rviz/slam.rviz" /> -->
+  
+  
+</launch>

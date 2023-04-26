@@ -1,0 +1,16 @@
+<launch>
+
+
+>
+    <include file="$(find robot_model)/launch/robot_model.launch" />
+
+    <include file="$(find linorobot)/launch/include/laser.launch">
+        <arg name="serial_port" value="/dev/ttyUSB1"/>
+    </include>
+
+
+    
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find linorobot)/rviz/slam.rviz" /> -->
+  
+  
+</launch>

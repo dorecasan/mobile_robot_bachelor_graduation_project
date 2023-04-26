@@ -1,0 +1,43 @@
+<launch>
+    <!-- Start ROS communication between the robot's computer and Linorobot base -->
+    <node pkg="rosserial_python" name="rosserial_lino" type="serial_node.py" output="screen">
+        <param name="port" value="/dev/ttyACM0" />
+        <param name="baud" value="57600" />
+    </node>
+	
+    <!-- Start GPS -->
+     <!--include file="$(find linorobot)/launch/gps.launch" /-->
+
+    <!-- IMU Relay and Filter -->
+    <include file="$(find linorobot)/launch/include/imu/imu.launch" />
+    
+    <!-- start hc-sr04 -->
+    <node name="hc_sr04" pkg="linorobot" type="hc_sr04" output="screen"></node>
+	
+
+    <!-- Publish Linorobot odometry -->
+   
+
+   <node pkg="linorobot" name="lino_base_node" type="lino_base_node" ></node>
+
+    <!--Publish static transform from base_footprint to base_link -->
+    
+
+    <node pkg="tf" type="static_transform_publisher" name="base_footprint_to_base_link" args="0 0 0.098 0 0 0 base_footprint base_link 100" /> 
+	<!-- z = 0.098 la khoang cach tu mat san len den day cua robot-->
+
+    <!-- Odom-IMU-GPS Extended Kalman Filter-->
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization"> 
+        <remap from="odometry/filtered" to="odom" />
+        <rosparam command="load" file="$(find linorobot)/param/ekf/robot_localization.yaml"/>
+    </node>
+
+    
+    <!--/muc chay chinh--><!--bat dau==================================================-->
+    <include file="$(find robot_model)/launch/robot_model.launch" />
+     <include file="$(find linorobot)/launch/include/laser.launch" />
+    <include file="$(find linorobot)/launch/slam.launch" />
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find linorobot)/rviz/slam.rviz" /> -->
+  
+  
+</launch>

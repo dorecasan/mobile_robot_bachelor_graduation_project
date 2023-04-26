@@ -1,0 +1,8 @@
+prefix=/home/dorecasan/my_ros/robot_lab/devel
+
+Name: rosserial_server
+Description: Description of rosserial_server
+Version: 0.8.0
+Cflags: -I/home/dorecasan/my_ros/robot_lab/src/rosserial/rosserial_server/include
+Libs: -L${prefix}/lib 
+Requires: roscpp rosserial_msgs std_msgs topic_tools

@@ -1,0 +1,2 @@
+set(rosserial_msgs_MESSAGE_FILES "/home/dorecasan/my_ros/robot_lab/src/rosserial/rosserial_msgs/msg/Log.msg;/home/dorecasan/my_ros/robot_lab/src/rosserial/rosserial_msgs/msg/TopicInfo.msg")
+set(rosserial_msgs_SERVICE_FILES "/home/dorecasan/my_ros/robot_lab/src/rosserial/rosserial_msgs/srv/RequestMessageInfo.srv;/home/dorecasan/my_ros/robot_lab/src/rosserial/rosserial_msgs/srv/RequestParam.srv;/home/dorecasan/my_ros/robot_lab/src/rosserial/rosserial_msgs/srv/RequestServiceInfo.srv")

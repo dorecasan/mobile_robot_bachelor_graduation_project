@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<robot name="toan_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:include filename="$(find robot_model)/urdf/toan_base.urdf.xacro"/>
+    <xacro:include filename="$(find robot_model)/urdf/toan_wheel.urdf.xacro"/>
+    <xacro:include filename="$(find robot_model)/urdf/laser.urdf.xacro"/>
+    <xacro:include filename="$(find robot_model)/urdf/camera.urdf.xacro"/>
+
+    <xacro:property name="wheel_offset_x" value="0.2225" />    <!-- x,y,z in translation from base_link to the center of the wheel -->
+	<xacro:property name="wheel_offset_y" value="0.2045" />
+	<xacro:property name="wheel_offset_z" value="0.0" />
+
+    <xacro:macro name="toan_robot" >
+        <xacro:toan_base/>
+        <xacro:toan_wheel prefix="toan_front_right_wheel" parent="toan_base_link" reflect="false">
+            <origin xyz="${wheel_offset_x} -${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
+        </xacro:toan_wheel>
+
+        <xacro:toan_wheel prefix="toan_front_left_wheel" parent="toan_base_link" reflect="true">
+			<origin xyz="${wheel_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
+		</xacro:toan_wheel>
+
+		<xacro:toan_wheel prefix="toan_back_left_wheel" parent="toan_base_link" reflect="true">
+			<origin xyz="-${wheel_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
+		</xacro:toan_wheel>
+
+		<xacro:toan_wheel prefix="toan_back_right_wheel" parent="toan_base_link" reflect="false">
+			<origin xyz="-${wheel_offset_x} -${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
+		</xacro:toan_wheel>
+
+    </xacro:macro>
+    <xacro:toan_robot/>
+    <xacro:wheel_controller/>
+    <xacro:laser_module parent_link="toan_base_link"/> 
+    <xacro:camera_module parent_link="toan_base_link"/> 
+    
+    
+</robot>
