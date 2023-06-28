@@ -1,7 +1,7 @@
 # Mobile robot project
 
 ## Introduction
-This resource includes all the necessary code for implementing the navigation stack and person tracking on a four-wheel mecanum mobile robot in both the ROS/Gazebo simulation environment and the real world.
+This resource includes all the necessary code for implementing the navigation stack and person tracking on a four-wheel mecanum mobile robot in both the ROS/Gazebo simulation environment and the real world. The paper can be found [here](https://husteduvn-my.sharepoint.com/:b:/g/personal/toan_nn174269_sis_hust_edu_vn/ETENLqFl6tBAkHVETX-TnekBxRNX9w6Eu3C653FKrr01Yw?e=HiWol5).
 
 The robot can do following tasks:
 1. SLAM: Gmapping and RTABMAP
